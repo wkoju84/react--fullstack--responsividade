@@ -1,12 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
+
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import './App.css';
+import Menu from './components/Menu';
+import Home from './containers/Home';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <div className="App">
-      Planner
-    </div>
+    <>
+      <Menu/>
+      <Router>
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+        </Routes>
+      </Router>
+    </>
   );
 }
 
