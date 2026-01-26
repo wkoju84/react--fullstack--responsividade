@@ -19,13 +19,14 @@ const Home = () => {
                 console.log(`erro: ${error}`)
             }
         }
+        returnedRecords();
     }, [])
 
     return (
         <Container>
             <Row className="justify-content-mb-center">
                 <Col xs lg="12" className="mb-3">
-                    <DesktopTable/>
+                    <DesktopTable recordResponse={recordResponse}/>
                     <MobileTable recordResponse={recordResponse}/>
                 </Col>
             </Row>

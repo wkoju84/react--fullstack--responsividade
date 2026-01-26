@@ -1,6 +1,12 @@
 import { Table } from "react-bootstrap";
+import { RecordResponse } from "../../../api/record/model";
+import Register from "./Register";
 
-const DesktopTable = () => {
+interface Props {
+    recordResponse: RecordResponse | undefined;
+}
+
+const DesktopTable = ({recordResponse} : Props) => {
     return (
         <div className="d-none d-md-block">
             <Table striped bordered hover variant="dark" responsive="lg" className="table-responsive">
@@ -14,13 +20,13 @@ const DesktopTable = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    {
+                        recordResponse?.content.map((reg, index) => (
+                            <tr key={index}>
+                                <Register record={reg}/>
+                            </tr>
+                        ))
+                    }
                 </tbody>
             </Table>
 
